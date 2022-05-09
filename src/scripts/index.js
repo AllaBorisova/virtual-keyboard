@@ -212,6 +212,35 @@ generateButton(ArrowUp, "▲", "")
 const ShiftRight = document.createElement("div");
 generateButton(ShiftRight, "Shift", "ShiftRight", "")
 
+//fifth line
+const ControlLeft = document.createElement("div");
+generateButton(ControlLeft, "Ctrl", "ControlLeft", "")
+
+const MetaLeft = document.createElement("div");
+generateButton(MetaLeft, "Win", "", "")
+
+const AltLeft = document.createElement("div");
+generateButton(AltLeft, "Alt", "", "")
+
+const Space = document.createElement("div");
+generateButton(Space, " ", "Space", "")
+
+const AltRight = document.createElement("div");
+generateButton(AltRight, "Alt", "", "")
+
+const ArrowLeft = document.createElement("div");
+generateButton(ArrowLeft, "◄", "", "")
+
+const ArrowDown = document.createElement("div");
+generateButton(ArrowDown, "▼", "", "")
+
+const ArrowRight = document.createElement("div");
+generateButton(ArrowRight, "►", "", "")
+
+const CtrlRight = document.createElement("div");
+generateButton(CtrlRight, "Ctrl", "", "")
+
+
 
 function showButton(button) {
 	button.classList.add('active');
@@ -221,8 +250,12 @@ function showButton(button) {
 	textarea.textContent += button.textContent;
 }
 
+
+
+
 document.addEventListener('keydown', function (event) {
 	console.log(event);
+
 	if ((event.code !== 'Backspace') && (event.code !== 'ArrowUp') && (event.code !== 'ShiftRight') && (event.code !== 'ShiftLeft') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
 		showButton(eval(event.code));
 	}
