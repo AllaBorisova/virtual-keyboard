@@ -24,6 +24,15 @@ const keyboard = document.createElement("div");
 keyboard.className = "keyboard";
 container.appendChild(keyboard);
 
+const langBlock = document.createElement("p");
+langBlock.className = "lang";
+langBlock.innerHTML = language;
+container.appendChild(langBlock);
+
+const infoBlock = document.createElement("p");
+infoBlock.className = "info";
+infoBlock.innerHTML = "Для переключения языка комбинация: левыe ctrl + alt";
+container.appendChild(infoBlock);
 
 function generateButton(button, rustext, addClass, engtext) {
 	button.className = "button";
@@ -35,6 +44,11 @@ function generateButton(button, rustext, addClass, engtext) {
 	} else {
 		button.textContent = engtext;
 	}
+	if (rustext && engtext) {
+		button.dataset.rus = rustext;
+		button.dataset.eng = engtext;
+	}
+
 
 	keyboard.appendChild(button);
 }
@@ -132,7 +146,7 @@ generateButton(Delete, "Del", "", "Del")
 
 //third line
 const CapsLock = document.createElement("div");
-generateButton(CapsLock, "CapsLock", "CapsLock", "CapsLock")
+generateButton(CapsLock, "CapsLock", "CapsLock")
 
 const KeyA = document.createElement("div");
 generateButton(KeyA, "ф", "", "a")
@@ -264,15 +278,37 @@ function toggleCaps() {
 	})
 }
 
+function changeLanguage() {
+	console.log('Change language');
+	if (language === "rus") {
+		language = "eng";
+		langBlock.innerHTML = language;
+		letters.forEach((element) => {
+			element.innerText = element.dataset.eng;
+		})
+	} else {
+		language = "rus";
+		langBlock.innerHTML = language;
+		letters.forEach((element) => {
+			element.innerText = element.dataset.rus;
+		})
+	}
+
+
+}
+
 
 document.addEventListener('keydown', function (event) {
 	console.log(event);
-	if (event.code == 'AltLeft' && (event.ctrlKey)) {
-		console.log('Change language');
-		lang = "eng";
-	}
+
 	switch (event.code) {
 		case 'CapsLock': toggleCaps(); break;
+		case 'AltLeft': if (event.ctrlKey) {
+			changeLanguage();
+		} break;
+		case 'ControlLeft': if (event.altKey) {
+			changeLanguage();
+		} break;
 		default: showButton(eval(event.code)); break;
 	}
 	// if ((event.code !== 'Backspace') && (event.code !== 'ArrowUp') && (event.code !== 'ShiftRight') && (event.code !== 'ShiftLeft') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {

@@ -1,3 +1,6 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 h1 {
   color: black;
   text-align: center;
@@ -34,7 +37,7 @@ textarea {
   background: black;
   border-radius: 3px;
   transition: all 0.3s;
-  font-family: Arial, Helvetica, sans-serif;
+
   &.Backspace,
   &.Enter,
   &.ShiftLeft {
@@ -56,4 +59,11 @@ textarea {
 }
 .button.active {
   background: blue;
+}
+.lang {
+  text-align: center;
+  font-weight: bold;
+}
+.info {
+  text-align: center;
 }
