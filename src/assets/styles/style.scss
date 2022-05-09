@@ -53,13 +53,17 @@ textarea {
   &.Space {
     flex: 1;
   }
+  &:hover {
+    opacity: 0.7;
+  }
+  &.active {
+    background: blue;
+  }
+  &.on {
+    color: blue;
+  }
 }
-.button:hover {
-  opacity: 0.7;
-}
-.button.active {
-  background: blue;
-}
+
 .lang {
   text-align: center;
   font-weight: bold;

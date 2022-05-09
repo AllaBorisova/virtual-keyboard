@@ -296,8 +296,10 @@ function toggleCaps() {
 	})
 	if (capsCheck === true) {
 		capsCheck = false;
+		CapsLock.classList.remove("on");
 	} else {
 		capsCheck = true;
+		CapsLock.classList.add("on");
 	}
 	console.log(capsCheck);
 }
