@@ -39,20 +39,18 @@ function generateButton(button, rustext, addClass, engtext) {
 	keyboard.appendChild(button);
 }
 
+//first line
 const Backquote = document.createElement("div");
 generateButton(Backquote, "ё", "", "`")
 
-
 const Digit1 = document.createElement("div");
 generateButton(Digit1, "1")
-
 
 const Digit2 = document.createElement("div");
 generateButton(Digit2, "2")
 
 const Digit3 = document.createElement("div");
 generateButton(Digit3, "3")
-
 
 const Digit4 = document.createElement("div");
 generateButton(Digit4, "4")
@@ -83,18 +81,18 @@ generateButton(Equal, "=")
 
 const Backspace = document.createElement("div");
 generateButton(Backspace, "Backspace", "Backspace")
-// Backspace.className = "button";
-// Backspace.classList.add("Backspace");
-// Backspace.textContent = "Backspace";
-// keyboard.appendChild(Backspace);
 
+
+//second line
 const Tab = document.createElement("div");
 generateButton(Tab, "Tab", "Tab")
 
 const KeyQ = document.createElement("div");
 generateButton(KeyQ, "й", "", "q")
+
 const KeyW = document.createElement("div");
 generateButton(KeyW, "ц", "", "w")
+
 const KeyE = document.createElement("div");
 generateButton(KeyE, "у", "", "e")
 
@@ -126,11 +124,52 @@ const BracketRight = document.createElement("div");
 generateButton(BracketRight, "ъ", "", "]")
 
 const Backslash = document.createElement("div");
-generateButton(Backslash, "\\", "", "\\")
-
+generateButton(Backslash, "\\", "", "\\");
 
 const Delete = document.createElement("div");
 generateButton(Delete, "Del", "", "Del")
+
+
+//third line
+const CapsLock = document.createElement("div");
+generateButton(CapsLock, "CapsLock", "CapsLock", "CapsLock")
+
+const KeyA = document.createElement("div");
+generateButton(KeyA, "ф", "", "a")
+
+const KeyS = document.createElement("div");
+generateButton(KeyS, "ы", "", "s")
+
+const KeyD = document.createElement("div");
+generateButton(KeyD, "в", "", "d")
+
+const KeyF = document.createElement("div");
+generateButton(KeyF, "а", "", "f")
+
+const KeyG = document.createElement("div");
+generateButton(KeyG, "п", "", "g")
+
+const KeyH = document.createElement("div");
+generateButton(KeyH, "р", "", "h")
+
+const KeyJ = document.createElement("div");
+generateButton(KeyJ, "о", "", "j")
+
+const KeyK = document.createElement("div");
+generateButton(KeyK, "л", "", "k")
+
+const KeyL = document.createElement("div");
+generateButton(KeyL, "д", "", "l")
+
+const Semicolon = document.createElement("div");
+generateButton(Semicolon, "ж", "", ";")
+
+const Quote = document.createElement("div");
+generateButton(Quote, "э", "", "'")
+
+const Enter = document.createElement("div");
+generateButton(Enter, "Enter", "Enter", "Enter")
+
 
 
 function showButton(button) {
@@ -143,7 +182,7 @@ function showButton(button) {
 
 document.addEventListener('keydown', function (event) {
 	console.log(event);
-	if (event.code !== 'Backspace') {
+	if ((event.code !== 'Backspace') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
 		showButton(eval(event.code));
 	}
 	// if (event.code == 'Digit1') {

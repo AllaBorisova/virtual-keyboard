@@ -35,8 +35,12 @@ textarea {
   border-radius: 3px;
   transition: all 0.3s;
   font-family: Arial, Helvetica, sans-serif;
-  &.Backspace {
+  &.Backspace,
+  &.Enter {
     width: 95px;
+  }
+  &.CapsLock {
+    width: 85px;
   }
   &.Tab {
     width: 50px;
