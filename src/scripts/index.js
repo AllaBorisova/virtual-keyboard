@@ -168,8 +168,49 @@ const Quote = document.createElement("div");
 generateButton(Quote, "э", "", "'")
 
 const Enter = document.createElement("div");
-generateButton(Enter, "Enter", "Enter", "Enter")
+generateButton(Enter, "Enter", "Enter", "")
 
+
+//fourth line
+
+const ShiftLeft = document.createElement("div");
+generateButton(ShiftLeft, "Shift", "ShiftLeft", "")
+
+const KeyZ = document.createElement("div");
+generateButton(KeyZ, "я", "", "z")
+
+const KeyX = document.createElement("div");
+generateButton(KeyX, "ч", "", "x")
+
+const KeyC = document.createElement("div");
+generateButton(KeyC, "с", "", "c")
+
+const KeyV = document.createElement("div");
+generateButton(KeyV, "м", "", "v")
+
+const KeyB = document.createElement("div");
+generateButton(KeyB, "и", "", "b")
+
+const KeyN = document.createElement("div");
+generateButton(KeyN, "т", "", "n")
+
+const KeyM = document.createElement("div");
+generateButton(KeyM, "ь", "", "m")
+
+const Comma = document.createElement("div");
+generateButton(Comma, "б", "", ",")
+
+const Period = document.createElement("div");
+generateButton(Period, "ю", "", ".")
+
+const Slash = document.createElement("div");
+generateButton(Slash, ".", "", "/")
+
+const ArrowUp = document.createElement("div");
+generateButton(ArrowUp, "▲", "")
+
+const ShiftRight = document.createElement("div");
+generateButton(ShiftRight, "Shift", "ShiftRight", "")
 
 
 function showButton(button) {
@@ -182,7 +223,7 @@ function showButton(button) {
 
 document.addEventListener('keydown', function (event) {
 	console.log(event);
-	if ((event.code !== 'Backspace') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
+	if ((event.code !== 'Backspace') && (event.code !== 'ArrowUp') && (event.code !== 'ShiftRight') && (event.code !== 'ShiftLeft') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
 		showButton(eval(event.code));
 	}
 	// if (event.code == 'Digit1') {

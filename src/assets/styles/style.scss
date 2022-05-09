@@ -36,10 +36,12 @@ textarea {
   transition: all 0.3s;
   font-family: Arial, Helvetica, sans-serif;
   &.Backspace,
-  &.Enter {
+  &.Enter,
+  &.ShiftRight {
     width: 95px;
   }
-  &.CapsLock {
+  &.CapsLock,
+  &.ShiftLeft {
     width: 85px;
   }
   &.Tab {
