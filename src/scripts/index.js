@@ -7,6 +7,12 @@ const wrapper = document.getElementById('wrapper');
 
 let language = "rus";
 
+if (localStorage.getItem("language") !== null) {
+	language = localStorage.getItem("language");;
+} else {
+	localStorage.setItem("language", "rus");
+}
+
 
 const container = document.createElement('div');
 container.className = "container";
@@ -42,7 +48,14 @@ function generateButton(button, rustext, addClass, engtext) {
 	if (language === "rus") {
 		button.textContent = rustext;
 	} else {
-		button.textContent = engtext;
+		if (engtext) {
+			button.textContent = engtext;
+		} else {
+			button.textContent = rustext;
+		}
+
+
+
 	}
 	if (rustext && engtext) {
 		button.dataset.rus = rustext;
@@ -251,8 +264,8 @@ generateButton(ArrowDown, "▼", "", "")
 const ArrowRight = document.createElement("div");
 generateButton(ArrowRight, "►", "", "")
 
-const CtrlRight = document.createElement("div");
-generateButton(CtrlRight, "Ctrl", "", "")
+const ControlRight = document.createElement("div");
+generateButton(ControlRight, "Ctrl", "", "")
 
 
 
@@ -261,6 +274,10 @@ function showButton(button) {
 	setTimeout(() => {
 		button.classList.remove('active');
 	}, 300);
+
+}
+
+function executeButton(button) {
 	textarea.textContent += button.textContent;
 }
 
@@ -282,6 +299,7 @@ function changeLanguage() {
 	console.log('Change language');
 	if (language === "rus") {
 		language = "eng";
+
 		langBlock.innerHTML = language;
 		letters.forEach((element) => {
 			element.innerText = element.dataset.eng;
@@ -293,23 +311,44 @@ function changeLanguage() {
 			element.innerText = element.dataset.rus;
 		})
 	}
+	localStorage.setItem("language", language);
 
 
 }
 
 
 document.addEventListener('keydown', function (event) {
-	console.log(event);
+	//console.log(event);
 
 	switch (event.code) {
-		case 'CapsLock': toggleCaps(); break;
-		case 'AltLeft': if (event.ctrlKey) {
-			changeLanguage();
-		} break;
-		case 'ControlLeft': if (event.altKey) {
-			changeLanguage();
-		} break;
-		default: showButton(eval(event.code)); break;
+		case 'CapsLock':
+			toggleCaps();
+			showButton(eval(event.code));
+			break;
+		case 'Tab':
+		case 'ControlRight':
+		case 'AltRight':
+		case 'Enter':
+		case 'Backspace':
+		case 'Delete':
+		case 'ShiftLeft':
+		case 'ShiftRight':
+		case 'MetaLeft':
+			showButton(eval(event.code));
+			break;
+		case 'AltLeft':
+			if (event.ctrlKey) {
+				changeLanguage();
+
+			}
+			showButton(eval(event.code)); break;
+		case 'ControlLeft':
+			if (event.altKey) {
+				changeLanguage();
+			}
+			showButton(eval(event.code));
+			break;
+		default: showButton(eval(event.code)); executeButton(eval(event.code)); break;
 	}
 	// if ((event.code !== 'Backspace') && (event.code !== 'ArrowUp') && (event.code !== 'ShiftRight') && (event.code !== 'ShiftLeft') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
 	// 	showButton(eval(event.code));
