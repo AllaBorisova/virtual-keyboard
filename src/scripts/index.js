@@ -3,9 +3,10 @@
 import "../assets/styles/style.scss";
 // import catJpg from '../assets/img/cat.jpg';
 
-const wrapper = document.getElementById('wrapper');
+const wrapper = document.body;
 
 let language = "rus";
+let capsCheck = false;
 
 if (localStorage.getItem("language") !== null) {
 	language = localStorage.getItem("language");;
@@ -293,6 +294,12 @@ function toggleCaps() {
 			element.textContent = letter.toUpperCase();
 		}
 	})
+	if (capsCheck === true) {
+		capsCheck = false;
+	} else {
+		capsCheck = true;
+	}
+	console.log(capsCheck);
 }
 
 function changeLanguage() {
@@ -302,13 +309,14 @@ function changeLanguage() {
 
 		langBlock.innerHTML = language;
 		letters.forEach((element) => {
-			element.innerText = element.dataset.eng;
+
+			element.innerText = (capsCheck === true) ? element.dataset.eng.toUpperCase() : element.dataset.eng;
 		})
 	} else {
 		language = "rus";
 		langBlock.innerHTML = language;
 		letters.forEach((element) => {
-			element.innerText = element.dataset.rus;
+			element.innerText = (capsCheck === true) ? element.dataset.rus.toUpperCase() : element.dataset.rus;
 		})
 	}
 	localStorage.setItem("language", language);
@@ -318,7 +326,7 @@ function changeLanguage() {
 
 
 document.addEventListener('keydown', function (event) {
-	//console.log(event);
+	console.log(event);
 
 	switch (event.code) {
 		case 'CapsLock':
@@ -334,6 +342,10 @@ document.addEventListener('keydown', function (event) {
 		case 'ShiftLeft':
 		case 'ShiftRight':
 		case 'MetaLeft':
+		case 'ArrowUp':
+		case 'ArrowLeft':
+		case 'ArrowRight':
+		case 'ArrowDown':
 			showButton(eval(event.code));
 			break;
 		case 'AltLeft':
