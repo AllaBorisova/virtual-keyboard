@@ -1,9 +1,9 @@
-// import helpers from './view';
-// import "../assets/styles/style.css";
+
 import "../assets/styles/style.scss";
-// import catJpg from '../assets/img/cat.jpg';
 
 const wrapper = document.body;
+
+console.log('Добрый день, пожалуйста, проверьте/перепроверьте работу в четверг. К сожалению, не все пункты осилила, особенно с линтером((');
 
 let language = "rus";
 let capsCheck = false;
@@ -54,9 +54,6 @@ function generateButton(button, rustext, addClass, engtext) {
 		} else {
 			button.textContent = rustext;
 		}
-
-
-
 	}
 	if (rustext && engtext) {
 		button.dataset.rus = rustext;
@@ -285,7 +282,7 @@ function executeButton(button) {
 let letters = [Backquote, Semicolon, Quote, Comma, Period, BracketLeft, BracketRight, KeyA, KeyB, KeyC, KeyD, KeyE, KeyF, KeyG, KeyH, KeyI, KeyJ, KeyK, KeyL, KeyM, KeyN, KeyO, KeyP, KeyQ, KeyR, KeyS, KeyT, KeyU, KeyV, KeyW, KeyX, KeyY, KeyZ];
 
 function toggleCaps() {
-	console.log('toggle');
+	//console.log('toggle');
 	letters.forEach((element) => {
 		let letter = element.innerText;
 		if (letter == letter.toUpperCase()) {
@@ -301,11 +298,11 @@ function toggleCaps() {
 		capsCheck = true;
 		CapsLock.classList.add("on");
 	}
-	console.log(capsCheck);
+	//console.log(capsCheck);
 }
 
 function changeLanguage() {
-	console.log('Change language');
+	//console.log('Change language');
 	if (language === "rus") {
 		language = "eng";
 
@@ -328,7 +325,7 @@ function changeLanguage() {
 
 
 document.addEventListener('keydown', function (event) {
-	console.log(event);
+	//console.log(event);
 
 	switch (event.code) {
 		case 'CapsLock':
@@ -364,22 +361,6 @@ document.addEventListener('keydown', function (event) {
 			break;
 		default: showButton(eval(event.code)); executeButton(eval(event.code)); break;
 	}
-	// if ((event.code !== 'Backspace') && (event.code !== 'ArrowUp') && (event.code !== 'ShiftRight') && (event.code !== 'ShiftLeft') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
-	// 	showButton(eval(event.code));
-	// }
-	// if (event.code == 'Digit1') {
-	// 	showButton(digit1);
-	// }
-	// if (event.code == 'Digit2') {
-	// 	showButton(digit2)
-	// }
-	// if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-	// 	alert('Undo!')
-	// }
+
 });
 
-// const { createDiv, createImg } = helpers;
-
-// createDiv('test', wrapper);
-
-// createImg(catJpg, wrapper);
