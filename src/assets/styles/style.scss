@@ -1,5 +1,47 @@
-$body-color: red;
-
-body {
-  background-color: $body-color;
+h1 {
+  color: black;
+  text-align: center;
+}
+.container {
+  width: 700px;
+  margin: 0 auto;
+}
+textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+}
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: grey;
+  padding: 10px;
+  gap: 5px;
+}
+.button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: black;
+  border-radius: 3px;
+  transition: all 0.3s;
+  font-family: Arial, Helvetica, sans-serif;
+  &.Backspace {
+    width: 100px;
+  }
+}
+.button:hover {
+  opacity: 0.7;
+}
+.button.active {
+  background: blue;
 }
