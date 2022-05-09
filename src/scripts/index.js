@@ -5,6 +5,8 @@ import "../assets/styles/style.scss";
 
 const wrapper = document.getElementById('wrapper');
 
+let language = "rus";
+
 
 const container = document.createElement('div');
 container.className = "container";
@@ -23,73 +25,113 @@ keyboard.className = "keyboard";
 container.appendChild(keyboard);
 
 
+function generateButton(button, rustext, addClass, engtext) {
+	button.className = "button";
+	if (addClass) {
+		button.classList.add(addClass);
+	}
+	if (language === "rus") {
+		button.textContent = rustext;
+	} else {
+		button.textContent = engtext;
+	}
 
+	keyboard.appendChild(button);
+}
 
-const backquote = document.createElement("div");
-backquote.className = "button";
-backquote.textContent = "`";
-keyboard.appendChild(backquote);
+const Backquote = document.createElement("div");
+generateButton(Backquote, "ё", "", "`")
+
 
 const Digit1 = document.createElement("div");
-Digit1.className = "button";
-Digit1.textContent = "1";
-keyboard.appendChild(Digit1);
+generateButton(Digit1, "1")
+
 
 const Digit2 = document.createElement("div");
-Digit2.className = "button";
-Digit2.textContent = "2";
-keyboard.appendChild(Digit2);
+generateButton(Digit2, "2")
 
 const Digit3 = document.createElement("div");
-Digit3.className = "button";
-Digit3.textContent = "3";
-keyboard.appendChild(Digit3);
+generateButton(Digit3, "3")
+
 
 const Digit4 = document.createElement("div");
-Digit4.className = "button";
-Digit4.textContent = "4";
-keyboard.appendChild(Digit4);
+generateButton(Digit4, "4")
 
 const Digit5 = document.createElement("div");
-Digit5.className = "button";
-Digit5.textContent = "5";
-keyboard.appendChild(Digit5);
+generateButton(Digit5, "5")
 
 const Digit6 = document.createElement("div");
-Digit6.className = "button";
-Digit6.textContent = "6";
-keyboard.appendChild(Digit6);
+generateButton(Digit6, "6")
 
 const Digit7 = document.createElement("div");
-Digit7.className = "button";
-Digit7.textContent = "7";
-keyboard.appendChild(Digit7);
+generateButton(Digit7, "7")
 
 const Digit8 = document.createElement("div");
-Digit8.className = "button";
-Digit8.textContent = "8";
-keyboard.appendChild(Digit8);
+generateButton(Digit8, "8")
+
+const Digit9 = document.createElement("div");
+generateButton(Digit9, "9")
 
 const Digit0 = document.createElement("div");
-Digit0.className = "button";
-Digit0.textContent = "0";
-keyboard.appendChild(Digit0);
+generateButton(Digit0, "0")
 
 const Minus = document.createElement("div");
-Minus.className = "button";
-Minus.textContent = "-";
-keyboard.appendChild(Minus);
+generateButton(Minus, "-")
 
 const Equal = document.createElement("div");
-Equal.className = "button";
-Equal.textContent = "=";
-keyboard.appendChild(Equal);
+generateButton(Equal, "=")
 
 const Backspace = document.createElement("div");
-Backspace.className = "button";
-Backspace.classList.add("Backspace");
-Backspace.textContent = "Backspace";
-keyboard.appendChild(Backspace);
+generateButton(Backspace, "Backspace", "Backspace")
+// Backspace.className = "button";
+// Backspace.classList.add("Backspace");
+// Backspace.textContent = "Backspace";
+// keyboard.appendChild(Backspace);
+
+const Tab = document.createElement("div");
+generateButton(Tab, "Tab", "Tab")
+
+const KeyQ = document.createElement("div");
+generateButton(KeyQ, "й", "", "q")
+const KeyW = document.createElement("div");
+generateButton(KeyW, "ц", "", "w")
+const KeyE = document.createElement("div");
+generateButton(KeyE, "у", "", "e")
+
+const KeyR = document.createElement("div");
+generateButton(KeyR, "к", "", "r")
+
+const KeyT = document.createElement("div");
+generateButton(KeyT, "е", "", "t")
+
+const KeyY = document.createElement("div");
+generateButton(KeyY, "н", "", "y")
+
+const KeyU = document.createElement("div");
+generateButton(KeyU, "г", "", "u")
+
+const KeyI = document.createElement("div");
+generateButton(KeyI, "ш", "", "i")
+
+const KeyO = document.createElement("div");
+generateButton(KeyO, "щ", "", "o")
+
+const KeyP = document.createElement("div");
+generateButton(KeyP, "з", "", "p")
+
+const BracketLeft = document.createElement("div");
+generateButton(BracketLeft, "х", "", "[")
+
+const BracketRight = document.createElement("div");
+generateButton(BracketRight, "ъ", "", "]")
+
+const Backslash = document.createElement("div");
+generateButton(Backslash, "\\", "", "\\")
+
+
+const Delete = document.createElement("div");
+generateButton(Delete, "Del", "", "Del")
+
 
 function showButton(button) {
 	button.classList.add('active');
@@ -101,7 +143,9 @@ function showButton(button) {
 
 document.addEventListener('keydown', function (event) {
 	console.log(event);
-	showButton(eval(event.code));
+	if (event.code !== 'Backspace') {
+		showButton(eval(event.code));
+	}
 	// if (event.code == 'Digit1') {
 	// 	showButton(digit1);
 	// }

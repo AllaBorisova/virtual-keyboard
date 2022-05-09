@@ -36,7 +36,10 @@ textarea {
   transition: all 0.3s;
   font-family: Arial, Helvetica, sans-serif;
   &.Backspace {
-    width: 100px;
+    width: 95px;
+  }
+  &.Tab {
+    width: 50px;
   }
 }
 .button:hover {
