@@ -250,15 +250,34 @@ function showButton(button) {
 	textarea.textContent += button.textContent;
 }
 
+let letters = [Backquote, Semicolon, Quote, Comma, Period, BracketLeft, BracketRight, KeyA, KeyB, KeyC, KeyD, KeyE, KeyF, KeyG, KeyH, KeyI, KeyJ, KeyK, KeyL, KeyM, KeyN, KeyO, KeyP, KeyQ, KeyR, KeyS, KeyT, KeyU, KeyV, KeyW, KeyX, KeyY, KeyZ];
 
+function toggleCaps() {
+	console.log('toggle');
+	letters.forEach((element) => {
+		let letter = element.innerText;
+		if (letter == letter.toUpperCase()) {
+			element.textContent = letter.toLowerCase();
+		} else {
+			element.textContent = letter.toUpperCase();
+		}
+	})
+}
 
 
 document.addEventListener('keydown', function (event) {
 	console.log(event);
-
-	if ((event.code !== 'Backspace') && (event.code !== 'ArrowUp') && (event.code !== 'ShiftRight') && (event.code !== 'ShiftLeft') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
-		showButton(eval(event.code));
+	if (event.code == 'AltLeft' && (event.ctrlKey)) {
+		console.log('Change language');
+		lang = "eng";
 	}
+	switch (event.code) {
+		case 'CapsLock': toggleCaps(); break;
+		default: showButton(eval(event.code)); break;
+	}
+	// if ((event.code !== 'Backspace') && (event.code !== 'ArrowUp') && (event.code !== 'ShiftRight') && (event.code !== 'ShiftLeft') && (event.code !== 'Delete') && (event.code !== 'Enter') && (event.code !== 'CapsLock') && (event.code !== 'Tab')) {
+	// 	showButton(eval(event.code));
+	// }
 	// if (event.code == 'Digit1') {
 	// 	showButton(digit1);
 	// }
