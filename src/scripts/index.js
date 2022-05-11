@@ -3,7 +3,7 @@ import "../assets/styles/style.scss";
 
 const wrapper = document.body;
 
-console.log('Добрый день, пожалуйста, проверьте/перепроверьте работу в четверг. К сожалению, не все пункты осилила, особенно с линтером((');
+console.log('Добрый день. Ветка https://github.com/AllaBorisova/virtual-keyboard/tree/gh-pages и исходный код в https://github.com/AllaBorisova/virtual-keyboard/tree/development. Чуть позже будет там пул реквест, не знаю как кинуть на него потом ссылку((');
 
 let language = "rus";
 let capsCheck = false;
